@@ -3,11 +3,15 @@ import tailwindcss from '@tailwindcss/vite';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig, fontProviders } from 'astro/config';
 
+import vercel from '@astrojs/vercel';
+
 export default defineConfig({
   experimental: {
     rustCompiler: true,
   },
+
   site: 'https://christianruiz.dev',
+
   fonts: [
     {
       name: 'Calibre',
@@ -50,12 +54,16 @@ export default defineConfig({
       },
     },
   ],
+
   integrations: [
     sitemap(),
     robotsTxt(),
     (await import('astro-compress')).default(),
   ],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: vercel(),
 });
