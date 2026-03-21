@@ -1,66 +1,21 @@
 @import "tailwindcss";
-
-@plugin "@midudev/tailwind-animations";
+@import "tailwind-animations";
 
 @import "aos/dist/aos.css";
 
-@font-face {
-  font-family: "Calibre";
-  src: url("/fonts/Calibre/Calibre-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Calibre";
-  src: url("/fonts/Calibre/Calibre-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Calibre";
-  src: url("/fonts/Calibre/Calibre-Semibold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Calibre";
-  src: url("/fonts/Calibre/Calibre-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+@theme inline {
+  --font-sans:
+    var(--font-calibre), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
 }
 
 * {
-  font-family:
-    "Calibre",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    sans-serif;
+  font-family: var(--font-sans);
 }
 
 html,
 body {
-  font-family:
-    "Calibre",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
 }
 

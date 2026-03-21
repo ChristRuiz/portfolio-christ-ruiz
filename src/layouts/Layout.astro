@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 import { site } from "../data/site";
 
 interface Props {
@@ -8,8 +9,11 @@ interface Props {
   image?: string;
 }
 
-const { title = site.title, description = site.description, image = site.image } =
-  Astro.props;
+const {
+  title = site.title,
+  description = site.description,
+  image = site.image,
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -19,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonicalURL} />
 
     <title>{title}</title>
@@ -41,17 +45,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Christian Ruiz",
-      "url": canonicalURL,
-      "image": new URL(image, Astro.site),
-      "jobTitle": "Desarrollador Full Stack",
-      "description": description,
-      "knowsAbout": ["Angular", "Java", "Spring Boot", "TypeScript", "Node.js", "PostgreSQL", "Docker", "AWS"],
-      "sameAs": [site.linkedinUrl]
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Christian Ruiz",
+        url: canonicalURL,
+        image: new URL(image, Astro.site),
+        jobTitle: "Desarrollador Full Stack",
+        description: description,
+        knowsAbout: [
+          "Angular",
+          "Java",
+          "Spring Boot",
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "Docker",
+          "AWS",
+        ],
+        sameAs: [site.linkedinUrl],
+      })}
+    />
+    <Font cssVariable="--font-calibre" preload />
     <ClientRouter />
   </head>
   <body>
@@ -61,7 +78,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       import AOS from "aos";
 
       document.addEventListener("astro:page-load", () => {
-        AOS.init({ duration: 800, easing: "ease-in-out", once: true, offset: 100, delay: 100 });
+        AOS.init({
+          duration: 800,
+          easing: "ease-in-out",
+          once: true,
+          offset: 100,
+          delay: 100,
+        });
         AOS.refresh();
       });
     </script>

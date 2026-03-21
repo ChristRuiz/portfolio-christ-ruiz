@@ -1,0 +1,31 @@
+---
+interface Props {
+  src: string;
+  poster?: string;
+}
+
+const { src, poster = '/assets/images/background-poster.jpg' } = Astro.props;
+---
+
+<div
+  class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-slate-950"
+  aria-hidden="true"
+>
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="metadata"
+    poster={poster}
+    class="animate-blurred-fade-in h-full w-full object-cover opacity-100"
+    style="animation-delay: 2.1s"
+    oncanplay="this.playbackRate=2"
+  >
+    <source src={src} type="video/webm" />
+  </video>
+  <div
+    class="absolute inset-0 bg-linear-to-b from-slate-950/20 via-slate-950/10 to-slate-950/20"
+  >
+  </div>
+</div>
