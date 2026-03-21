@@ -6,10 +6,6 @@ import { defineConfig, fontProviders } from 'astro/config';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  experimental: {
-    rustCompiler: true,
-  },
-
   site: 'https://christianruiz.dev',
 
   fonts: [
