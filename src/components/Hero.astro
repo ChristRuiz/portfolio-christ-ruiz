@@ -1,0 +1,122 @@
+---
+import { BadgeCheck, Briefcase, Mail, Sparkles } from "@lucide/astro";
+import { Image } from "astro:assets";
+import { site } from "../data/site";
+---
+
+<section
+  id="hero"
+  class="relative flex min-h-screen w-full flex-col items-center justify-start bg-slate-950/93 pt-10 text-left md:justify-center md:pt-0"
+>
+  <div class="container max-w-7xl px-4 sm:px-6 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-center md:gap-8">
+      <div class="order-2 flex-1 md:order-1">
+        <h3
+          class="animate-fade-in-down w-full text-base tracking-widest text-orange-500 sm:text-lg md:text-xl"
+        >
+          Hola! Mi nombre es
+        </h3>
+        <h1
+          class="before:animate-typewriter after:animate-caret relative mb-1 w-max bg-slate-950 pt-2 font-mono text-4xl font-bold text-white before:absolute before:inset-0 before:h-full before:bg-slate-950 after:absolute after:inset-0 after:top-0 after:w-[0.125em] after:bg-white after:transition-none sm:pt-3 sm:text-5xl md:text-6xl"
+        >
+          Christian Ruiz.
+        </h1>
+        <h2
+          class="animate-fade-in-right mb-2 w-full text-3xl font-semibold text-slate-500 sm:mb-3 sm:text-4xl md:text-5xl"
+          style="animation-delay: 1.5s"
+        >
+          Desarrollador Full Stack
+        </h2>
+        <div
+          class="animate-fade-in-up mb-4 flex flex-wrap items-center gap-2 sm:gap-3"
+          style="animation-delay: 1.8s"
+        >
+          <span
+            class="inline-flex items-center gap-1.5 rounded-full border border-slate-600 bg-slate-800/80 px-3 py-1.5 text-xs font-medium text-slate-400 sm:text-sm"
+          >
+            <Briefcase class="h-3.5 w-3.5 shrink-0" aria-hidden />
+            Trabajando en {site.workingAt}
+          </span>
+        </div>
+        <p
+          class="animate-fade-in-up mb-4 w-full text-slate-300 sm:w-11/12 sm:text-lg md:w-7/12"
+          style="animation-delay: 2.1s"
+        >
+          Especializado en
+          <span class="font-semibold text-orange-400">Angular</span>
+          y
+          <span class="font-semibold text-orange-400">Java</span>
+          , con más de 5 años de experiencia en el sector. Desarrollo aplicaciones
+          escalables, con atención a la interfaz y la experiencia de usuario y especial
+          dedicación a la optimización de rendimiento.
+        </p>
+        <a
+          href={site.efsetCertificateUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="animate-fade-in-up mb-4 inline-flex w-fit items-center gap-2 rounded-lg border border-slate-600/80 bg-slate-800/50 px-4 py-2 text-sm text-slate-300 transition-colors hover:border-orange-500/30 hover:bg-orange-500/10 hover:text-orange-400"
+          style="animation-delay: 2.4s"
+        >
+          <BadgeCheck class="h-4 w-4 shrink-0 text-orange-500" aria-hidden />
+          <span>Inglés C1 · EFSET</span>
+        </a>
+        <div class="flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <a
+            href={`mailto:${site.email}`}
+            class="animate-fade-in-up flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-medium leading-none text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-950"
+            style="animation-delay: 2.7s"
+          >
+            <Mail class="mb-1 block h-4 w-4 shrink-0" aria-hidden />
+            <span>Contactar</span>
+          </a>
+          <a
+            href={site.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="animate-fade-in-up flex items-center justify-center gap-2 rounded-lg border border-slate-700 bg-transparent px-6 py-3 text-sm font-medium leading-none text-slate-300 transition-colors hover:border-slate-600 hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-slate-700 focus:ring-offset-2 focus:ring-offset-slate-950"
+            style="animation-delay: 2.9s"
+          >
+            <svg
+              class="mb-1 block h-4 w-4 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              ></path>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <p
+          class="animate-fade-in-up mt-6 flex items-center gap-2 text-sm text-slate-500"
+          style="animation-delay: 3.1s"
+        >
+          <Sparkles class="h-4 w-4 shrink-0 text-orange-500/70" aria-hidden />
+          Proyectos personales próximamente
+        </p>
+      </div>
+      <div
+        class="animate-fade-in-right order-1 mb-9 flex shrink-0 justify-center md:order-2 md:mt-0 md:justify-end"
+        style="animation-delay: 0.6s"
+      >
+        <div class="relative overflow-hidden rounded-full">
+          <Image
+            src="/foto_perfil.png"
+            alt="Christian Ruiz - Desarrollador Full Stack"
+            class="aspect-square w-full max-w-56 rounded-full object-contain transition-all duration-300 hover:scale-105 sm:max-w-64 md:max-w-80 lg:max-w-96"
+            style="filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5))"
+            width="384"
+            height="384"
+            loading="eager"
+          />
+          <div
+            class="pointer-events-none absolute right-0 bottom-0 left-0 h-2/5 bg-linear-to-t from-slate-950 via-slate-950/80 to-transparent"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

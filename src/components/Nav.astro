@@ -1,0 +1,61 @@
+---
+import { itemsNav } from "../data/nav";
+---
+
+<nav
+  class="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full border border-slate-700/20 bg-slate-900/60 p-2 shadow-2xl backdrop-blur-lg lg:bottom-auto lg:left-6 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:flex-col lg:rounded-2xl lg:border-slate-700/50 lg:gap-4 lg:p-3"
+  aria-label="Navegación principal"
+>
+  {itemsNav.map((item) => {
+    const Icono = item.icono;
+    return (
+      <button
+        type="button"
+        data-seccion={item.id}
+        class="nav-enlace group relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:scale-110 [&.activo]:bg-orange-500 [&.activo]:text-white [&.activo]:shadow-lg [&.activo]:shadow-orange-500/50 lg:h-12 lg:w-12 lg:rounded-xl"
+        aria-label={item.etiqueta}
+      >
+        <Icono class="h-5 w-5 transition-all" />
+        <span class="pointer-events-none absolute left-full top-1/2 z-10 ml-4 hidden -translate-y-1/2 whitespace-nowrap rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 lg:block lg:opacity-0 lg:group-hover:opacity-100">
+          {item.etiqueta}
+          <span class="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-800"></span>
+        </span>
+      </button>
+    );
+  })}
+</nav>
+
+<script define:vars={{ ids: itemsNav.map((item) => item.id) }}>
+  document.addEventListener("astro:page-load", () => {
+    const enlaces = document.querySelectorAll(".nav-enlace");
+    enlaces.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.seccion ?? "";
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    const observador = new IntersectionObserver(
+      (entradas) => {
+        for (const e of entradas) {
+          if (!e.isIntersecting) continue;
+          const id = e.target.id;
+          document.querySelectorAll(".nav-enlace").forEach((b) => {
+            b.classList.toggle("activo", b.dataset.seccion === id);
+          });
+          break;
+        }
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+    );
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observador.observe(el);
+    });
+
+    document.querySelectorAll(".nav-enlace").forEach((b) => {
+      b.classList.toggle("activo", b.dataset.seccion === "hero");
+    });
+  });
+</script>
