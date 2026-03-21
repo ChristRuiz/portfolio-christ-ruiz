@@ -16,6 +16,8 @@
     "@astrojs/vercel": "^10.0.2",
     "@lucide/astro": "^0.577.0",
     "@tailwindcss/vite": "^4.2.2",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "aos": "^2.3.4",
     "astro": "^6.0.8",
     "astro-compress": "^2.4.0",
