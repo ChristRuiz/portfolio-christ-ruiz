@@ -3,6 +3,7 @@ import type { ExperienciaTrabajo } from "../interfaces/experiencia_trabajo";
 export const experiencias: ExperienciaTrabajo[] = [
   {
     company: "Redsys",
+    logo: "/logo_redsys.svg",
     role: "Full Stack Developer",
     startDate: "Noviembre 2023",
     endDate: "Presente",
@@ -20,6 +21,7 @@ export const experiencias: ExperienciaTrabajo[] = [
   },
   {
     company: "NTT Data",
+    logo: "/logo_nttdata.svg",
     role: "Senior Full Stack Developer",
     startDate: "Septiembre 2020",
     endDate: "Noviembre 2023",
