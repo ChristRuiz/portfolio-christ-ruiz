@@ -31,9 +31,11 @@ import { experiencias } from "../data/experiencia";
       >
         Experiencia Laboral
       </h2>
-      <p class="mx-auto max-w-2xl text-slate-400">
-        Construyendo soluciones innovadoras con las tecnologías más avanzadas
-      </p>
+      <div
+        class="prose prose-invert mx-auto max-w-2xl max-w-none prose-p:text-center prose-p:text-slate-400"
+      >
+        <p>Construyendo soluciones innovadoras con las tecnologías más avanzadas</p>
+      </div>
     </div>
 
     <div class="relative">
@@ -84,9 +86,11 @@ import { experiencias } from "../data/experiencia";
                     {exp.role}
                   </h4>
 
-                  <p class="mb-6 text-sm leading-relaxed text-slate-300 sm:text-base">
-                    {exp.description}
-                  </p>
+                  <div
+                    class="prose prose-invert mb-6 max-w-none prose-p:mb-0 prose-p:leading-relaxed prose-sm sm:prose-base"
+                  >
+                    <p>{exp.description}</p>
+                  </div>
 
                   <div class="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (

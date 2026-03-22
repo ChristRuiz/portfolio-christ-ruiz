@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 @import "tailwind-animations";
 
 @import "aos/dist/aos.css";
