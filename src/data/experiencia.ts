@@ -22,7 +22,7 @@ export const experiencias: ExperienciaTrabajo[] = [
   {
     company: "NTT Data",
     logo: "/logo_nttdata.svg",
-    role: "Senior Full Stack Developer",
+    role: "Full Stack Analyst Developer",
     startDate: "Septiembre 2020",
     endDate: "Noviembre 2023",
     description:
