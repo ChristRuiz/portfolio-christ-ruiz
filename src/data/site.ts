@@ -4,7 +4,7 @@ export const site = {
     "Desarrollador Full Stack (Angular, Java, Spring Boot). Más de 5 años construyendo productos escalables. Portfolio, experiencia y stack — Christian Ruiz.",
   siteName: "Christian Ruiz",
   /** Imagen horizontal para previews al compartir (Open Graph / Twitter). Mín. recomendado ~1200×630. */
-  socialImage: "/assets/images/background-poster.jpg",
+  socialImage: "/assets/images/preview.png",
   socialImageWidth: 1280,
   socialImageHeight: 720,
   socialImageAlt:
