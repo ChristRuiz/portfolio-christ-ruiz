@@ -55,7 +55,14 @@ export default defineConfig({
   integrations: [
     sitemap(),
     robotsTxt(),
-    (await import('astro-compress')).default(),
+    (await import('astro-compress')).default({
+      HTML: {
+        'html-minifier-terser': {
+          // LinkedIn y otros crawlers fallan a veces con property=og:* sin comillas
+          removeAttributeQuotes: false,
+        },
+      },
+    }),
   ],
 
   vite: {

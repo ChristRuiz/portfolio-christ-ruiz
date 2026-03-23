@@ -24,7 +24,7 @@ const profileImageURL = new URL(site.profileImage, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,7 +42,9 @@ const profileImageURL = new URL(site.profileImage, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta name="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:secure_url" content={socialImageURL.href} />
     <meta property="og:image:width" content={String(site.socialImageWidth)} />
     <meta property="og:image:height" content={String(site.socialImageHeight)} />
     <meta property="og:image:alt" content={site.socialImageAlt} />
@@ -59,23 +61,34 @@ const profileImageURL = new URL(site.profileImage, Astro.site);
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Person",
-        name: "Christian Ruiz",
-        url: canonicalURL,
-        image: profileImageURL,
-        jobTitle: "Desarrollador Full Stack",
-        description: description,
-        knowsAbout: [
-          "Angular",
-          "Java",
-          "Spring Boot",
-          "TypeScript",
-          "Node.js",
-          "PostgreSQL",
-          "Docker",
-          "AWS",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            url: canonicalURL.href,
+            name: site.siteName,
+            description: description,
+            inLanguage: "es-ES",
+          },
+          {
+            "@type": "Person",
+            name: "Christian Ruiz",
+            url: canonicalURL.href,
+            image: profileImageURL.href,
+            jobTitle: "Desarrollador Full Stack",
+            description: description,
+            knowsAbout: [
+              "Angular",
+              "Java",
+              "Spring Boot",
+              "TypeScript",
+              "Node.js",
+              "PostgreSQL",
+              "Docker",
+              "AWS",
+            ],
+            sameAs: [site.linkedinUrl],
+          },
         ],
-        sameAs: [site.linkedinUrl],
       })}
     />
     <Font cssVariable="--font-calibre" preload />
