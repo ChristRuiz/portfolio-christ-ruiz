@@ -1,12 +1,13 @@
 export const site = {
-  title: "Christian Ruiz | Desarrollador Full Stack",
+  // ~50–60 caracteres: mejor para previews en redes (LinkedIn, etc.)
+  title: "Christian Ruiz | Desarrollador Full Stack · Angular & Java",
   description:
     "Desarrollador Full Stack (Angular, Java, Spring Boot). Más de 5 años construyendo productos escalables. Portfolio, experiencia y stack — Christian Ruiz.",
   siteName: "Christian Ruiz",
   /** Imagen horizontal para previews al compartir (Open Graph / Twitter). Mín. recomendado ~1200×630. */
   socialImage: "/assets/images/preview.png",
-  socialImageWidth: 1280,
-  socialImageHeight: 720,
+  socialImageWidth: 1200,
+  socialImageHeight: 630,
   socialImageAlt:
     "Vista del portfolio de Christian Ruiz, desarrollador Full Stack",
   /** Foto de perfil (schema.org Person, UI). */
