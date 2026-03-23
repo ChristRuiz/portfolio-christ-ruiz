@@ -6,7 +6,8 @@ import { defineConfig, fontProviders } from 'astro/config';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  site: 'https://christianruiz.dev',
+  // URL absoluta para Open Graph, sitemap y enlaces canónicos al compartir
+  site: 'https://christianruiz.vercel.app',
 
   fonts: [
     {
